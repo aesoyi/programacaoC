@@ -160,7 +160,7 @@ int main(){
     int escolhaAtributo;
 
     printf("### Comparação de Atributos! ###\n");
-    printf("Escolha um atributo:\n");
+    printf("Escolha o primeiro atributo:\n");
     printf("1. População\n");
     printf("2. Área\n");
     printf("3. PIB\n");
@@ -168,7 +168,151 @@ int main(){
     printf("5. Densidade\n");
     scanf("%d", &escolhaAtributo);
 
-switch (escolhaAtributo)
+int escolhaAtributo2;
+
+float valor1Carta1 = 0, valor1Carta2 = 0;
+float valor2Carta1 = 0, valor2Carta2 = 0;
+
+// ======================
+// PRIMEIRO ATRIBUTO
+// ======================
+
+switch (escolhaAtributo){
+
+    case 1:
+        valor1Carta1 = populacao1;
+        valor1Carta2 = populacao2;
+        break;
+
+    case 2:
+        valor1Carta1 = area1;
+        valor1Carta2 = area2;
+        break;
+
+    case 3:
+        valor1Carta1 = pib1;
+        valor1Carta2 = pib2;
+        break;
+
+    case 4:
+        valor1Carta1 = turisticos1;
+        valor1Carta2 = turisticos2;
+        break;
+
+    case 5:
+        valor1Carta1 = quociente1;
+        valor1Carta2 = quociente2;
+        break;
+
+    default:
+        printf("Opcao invalida!\n");
+        return 1;
+}
+
+// ======================
+// SEGUNDO MENU
+// ======================
+
+printf("\nEscolha o segundo atributo:\n");
+
+if(escolhaAtributo != 1)
+    printf("1. População\n");
+
+if(escolhaAtributo != 2)
+    printf("2. Área\n");
+
+if(escolhaAtributo != 3)
+    printf("3. PIB\n");
+
+if(escolhaAtributo != 4)
+    printf("4. Pontos Turísticos\n");
+
+if(escolhaAtributo != 5)
+    printf("5. Densidade\n");
+
+scanf("%d", &escolhaAtributo2);
+
+// impede repetir
+if(escolhaAtributo == escolhaAtributo2){
+    printf("Você não pode repetir atributos!\n");
+    return 1;
+}
+
+// ======================
+// SEGUNDO ATRIBUTO
+// ======================
+
+switch (escolhaAtributo2){
+
+    case 1:
+        valor2Carta1 = populacao1;
+        valor2Carta2 = populacao2;
+        break;
+
+    case 2:
+        valor2Carta1 = area1;
+        valor2Carta2 = area2;
+        break;
+
+    case 3:
+        valor2Carta1 = pib1;
+        valor2Carta2 = pib2;
+        break;
+
+    case 4:
+        valor2Carta1 = turisticos1;
+        valor2Carta2 = turisticos2;
+        break;
+
+    case 5:
+        valor2Carta1 = quociente1;
+        valor2Carta2 = quociente2;
+        break;
+
+    default:
+        printf("Opcao invalida!\n");
+        return 1;
+}
+
+// ======================
+// SOMA DOS ATRIBUTOS
+// ======================
+
+float somaCarta1 = valor1Carta1 + valor2Carta1;
+float somaCarta2 = valor1Carta2 + valor2Carta2;
+
+// densidade: menor vence
+// então inverte valor antes da soma
+if(escolhaAtributo == 5){
+    somaCarta1 = (1.0 / quociente1) + valor2Carta1;
+    somaCarta2 = (1.0 / quociente2) + valor2Carta2;
+}
+
+if(escolhaAtributo2 == 5){
+    somaCarta1 = valor1Carta1 + (1.0 / quociente1);
+    somaCarta2 = valor1Carta2 + (1.0 / quociente2);
+}
+
+// ======================
+// RESULTADO
+// ======================
+
+printf("\n### RESULTADO FINAL ###\n");
+
+printf("%s: %.2f\n", cidade1, somaCarta1);
+printf("%s: %.2f\n", cidade2, somaCarta2);
+
+if(somaCarta1 > somaCarta2){
+    printf("Carta 1 venceu!\n");
+}
+else if(somaCarta2 > somaCarta1){
+    printf("Carta 2 venceu!\n");
+}
+else{
+    printf("Empate!\n");
+}
+
+/*
 {
 case 1:
     printf("\n=== COMPARAÇÃO: POPULAÇÃO ===\n");
@@ -254,7 +398,7 @@ case 5:
 default:
     printf("Opção inválida!\n");
     break;
-}
+}*/
 
     return 0;
     
