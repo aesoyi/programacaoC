@@ -47,7 +47,7 @@ case 3:
 
     if (escolhaComputador == escolhaJogador)
     {
-        printf("Empate!\n");
+        printf("### Empate! ###\n");
     } else if ((escolhaJogador == 1) && (escolhaComputador == 3) || 
                 (escolhaJogador == 2) && (escolhaComputador == 1) ||
                 (escolhaJogador == 3) && (escolhaComputador == 2))
